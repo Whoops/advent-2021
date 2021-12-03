@@ -1,5 +1,7 @@
 (ns whoops.advent-2021
-  (:require [clojure.string :as string])
+  (:require
+   [clojure.string :as string]
+   [whoops.common :refer [parse-int read-input]])
   (:gen-class))
 
 (defn greet
@@ -12,14 +14,8 @@
   [& args]
   (greet {:name (first args)}))
 
-
-(defn read-input [problem]
-  (let [file (str "resources/input/" problem "/input")]
-    (string/split-lines (slurp file))))
-
-
 (defn p1-1 []
-  (let [data (map #(Integer/parseInt %) (read-input "1-1"))
+  (let [data (map parse-int (read-input "1-1"))
         reducer (fn [[cnt lst] nxt]
                   (if (> nxt lst)
                     [(inc cnt) nxt]
@@ -27,7 +23,7 @@
     (first (reduce reducer [0 Integer/MAX_VALUE] data))))
 
 (defn p1-2 []
-  (let [data (map #(Integer/parseInt %) (read-input "1-1"))
+  (let [data (map parse-int (read-input "1-1"))
         reducer (fn [[cnt a b c] d]
                   (cond
                     (not (and a b c d)) [cnt b c d]
