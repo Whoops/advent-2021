@@ -13,9 +13,7 @@
   (map process-row (read-input "3-1")))
 
 (defn- sum-data [data]
-  (->> data
-      (apply map vector)
-      (map #(reduce + %))))
+  (apply map + data))
 
 (defn- gamma-vec [data]
   (let [sums (sum-data data)
