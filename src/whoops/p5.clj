@@ -3,7 +3,6 @@
 
 (def ^:private day5-input (read-input "5-1"))
 
-
 (defn- parse-vector [s]
   (->> s
       (re-seq #"\d+")
@@ -12,10 +11,6 @@
 
 (defn- flat? [[[x1 y1] [x2 y2]]]
   (or (= x1 x2) (= y1 y2)))
-
-(defn- inclusive-range [a b]
-  (let [[a b] (sort [a b])]
-    (range a (inc b))))
 
 (defn- expand-vector [[[x1 y1] [x2 y2]]]
   (let [x-steps (- x2 x1)
