@@ -10,3 +10,9 @@
    (Integer/parseInt s))
   ([s base]
    (Integer/parseInt s base)))
+
+(defn parse-long
+  ([s]
+   (Long/parseLong s))
+  ([s base]
+   (Long/parseLong s base)))
