@@ -1,6 +1,6 @@
 (ns whoops.p9
-  (:require [whoops.common :refer [read-input parse-long]]
-            [clojure.string :as string]))
+  (:require
+   [whoops.common :refer [parse-long read-input]]))
 
 (def day9-data
   (->> (read-input "9-1")
