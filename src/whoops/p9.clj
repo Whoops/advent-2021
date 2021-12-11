@@ -2,16 +2,6 @@
   (:require [whoops.common :refer [read-input parse-long]]
             [clojure.string :as string]))
 
-
-(def sample (->> "2199943210
-3987894921
-9856789892
-8767896789
-9899965678"
-                 (string/split-lines)
-                 (mapv vec)
-                 (mapv #(mapv str %))
-                 (mapv #(mapv parse-long %))))
 (def day9-data
   (->> (read-input "9-1")
        (mapv vec)
