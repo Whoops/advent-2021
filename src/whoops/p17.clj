@@ -46,7 +46,7 @@
 
 (defn works? [x-vel y-vel x-min x-max y-min y-max]
   (->> (iterate run-step [[0 0] [x-vel y-vel]])
-       (take-while #(right-direction? (second (first %)) (second (second %)) y-min))
+       (take-while #(and (<= (first (first %)) x-max) (right-direction? (second (first %)) (second (second %)) y-min)))
        (filter #(on-target? (first %) x-min x-max y-min y-max))
        first))
 
